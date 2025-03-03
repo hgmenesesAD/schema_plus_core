@@ -50,7 +50,7 @@ module SchemaPlus
             }.sources
           end
 
-          def select_rows(sql, name=nil, binds=[])
+          def select_rows(sql, name=nil, binds=[], async: false)
             SchemaMonkey::Middleware::Query::Exec.start(connection: self, sql: sql, query_name: name, binds: binds) { |env|
               env.result = super env.sql, env.query_name, env.binds
             }.result

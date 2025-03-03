@@ -21,7 +21,8 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version = ">= 2.5.0"
 
-  gem.add_dependency "activerecord", ">= 5.2", "< 7.1"
+  # based on: https://github.com/SchemaPlus/schema_plus_core/commit/38d3ee352ee42abb6bce7b5ae552a1492a04749b
+  gem.add_dependency "activerecord", ">= 5.2"
   gem.add_dependency "schema_monkey", "~> 3.0.2"
 
   gem.add_development_dependency "bundler"
