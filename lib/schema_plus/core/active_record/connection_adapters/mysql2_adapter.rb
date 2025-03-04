@@ -65,7 +65,7 @@ module SchemaPlus
           alias exec_without_stmt exec_query
 
           def exec_insert(sql, name, binds, pk = nil, sequence_name = nil, returning: nil)
-            SchemaMonkey::Middleware::Query::Exec.start(connection: self, sql: sql, query_name: name, binds: binds) { |env|
+            super || SchemaMonkey::Middleware::Query::Exec.start(connection: self, sql: sql, query_name: name, binds: binds) { |env|
               env.result = super env.sql, env.query_name, env.binds, pk, sequence_name, returning
             }.result
           end
